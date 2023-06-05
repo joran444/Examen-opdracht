@@ -1,30 +1,17 @@
-import "../styles/globals.css"
-import Link from "next/link"
-import {useRouter} from "next/router"
+import "../styles/globals.css";
+import { useRouter } from "next/router";
+import Header from "@components/header";
+import Footer from "@components/footer";
 
-export default function App({ Component, pageProps}) {
-    const router = useRouter()
-
+export default function App({ Component, pageProps }) {
     return (
-        <>
-            <div >
-                <ul className="flex justify-end" id="main-nav">
-                    <li className={router.pathname == '/' ? "bg-gray-dark shadow rounded text-center flex-1 text-white" : "bg-white shadow rounded text-center flex-1"}>
-                    <Link href="/" >Home</Link>
-                    </li>
-                    <li className={router.pathname == '/blog' ? "bg-gray-dark shadow rounded text-center flex-1 text-white" : "bg-white shadow rounded text-center flex-1"}>
-                    <Link href="/blog">Blogs</Link>
-                    </li>
-                    <li className="w-1/4 bg-white shadow rounded text-center flex-1">
-                    <Link href="" >over ons</Link>
-                    </li>
-                    <li className="w-1/4 bg-white shadow rounded text-center flex-1">
-                    <Link href="" >Contact</Link>
-                    </li>
-                </ul>
-            </div>
-            <Component {...pageProps} />
-        </>
+        <div className=""> 
+                <Header />
+                <div className="site-container background">
+                    <Component {...pageProps} />
+                </div>
+                <Footer />
+        </div>
     )
 }
 

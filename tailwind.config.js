@@ -25,6 +25,10 @@ module.exports = {
       'gray-dark': '#273444',
       'gray': '#8492a6',
       'gray-light': '#d3dce6',
+      'white': '#ffffff',
+      'black': '#000000',
+      'background': '#374220',
+      'card': '#1B2110',
     },
     fontFamily: {
       sans: ['Graphik', 'sans-serif'],
@@ -34,6 +38,7 @@ module.exports = {
       spacing: {
         '128': '32rem',
         '144': '36rem',
+        '84': '21rem',
       },
       borderRadius: {
         '4xl': '2rem',
