@@ -1,32 +1,43 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap");
+@import url("/fonts/CinzelDecorative-Regular.ttf");
+@import url("/fonts/Poppins-Regular.ttf");
+
 
 @layer components {
     /* globals.css */
 
-    .text-base {
-      @apply font-sans text-lg leading-relaxed text-orange-800;
+    @font-face {
+      font-family: 'Cinzel Decorative';
+      src: url('/fonts/CinzelDecorative-Regular.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+  
+    @font-face {
+      font-family: 'Poppins';
+      src: url('/fonts/Poppins-Regular.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    
+    .text-nav-heading {
+      color: #FF7500;
+      font-family: 'Cinzel Decorative', serif;
     }
 
     .text-heading {
-      color: #FF7500;
-      font-family: 'Cinzel Decorative';
-    }
-
-    .text-accent {
-      @apply text-indigo-500;
+      font-family: 'Cinzel Decorative', serif;
     }
 
     .card {
       background-color: #1B2110;
-      border-radius: theme('borderRadius.lg');
       padding: theme('spacing.6');
       box-shadow: theme('boxShadow.xl');
-      height: 100%;
       /* color: theme('colors.black'); */
       align-content: center;
+      font-family: 'Poppins', serif;
     }
 
     .active {
@@ -38,21 +49,6 @@
       position: relative;
       background-color: #374220;
       max-width: 100%;
-    }
-
-    #main-nav {
-      display: flex;
-      justify-content: center;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 2;
-      background-color: transparent;
-    }
-
-    .inner-container {
-      position: relative;
     }
 
     .footer {

@@ -12,8 +12,10 @@ module.exports = {
     screens: {
       sm: '480px',
       md: '768px',
-      lg: '976px',
-      xl: '1440px',
+      lg: '1024px',
+      xl: '1280px',
+      xxl: '1440px',
+      xxxl: '1536px',
     },
     colors: {
       'blue': '#1fb6ff',
@@ -31,18 +33,25 @@ module.exports = {
       'card': '#1B2110',
     },
     fontFamily: {
-      sans: ['Graphik', 'sans-serif'],
-      serif: ['Merriweather', 'serif'],
+      sans: ['Cincel Decorative', 'sans-serif'],
+      serif: ['Cinzel', 'serif'],
     },
     extend: {
       spacing: {
-        '128': '32rem',
+        '128': '32rem', //512px
         '144': '36rem',
-        '84': '21rem',
+        '160': '53.125rem',// px
+        '84': '21rem', // 336px
+        '85': '22rem',
+        '100': '25.625rem', //410px width of the cards 
+        '86': '22.5rem', // 360px height of the cards
       },
       borderRadius: {
         '4xl': '2rem',
-      }
+      },
+      fontFamily: {
+        'cinzel': ['Cinzel Decorative', 'sans-serif'],
+      },
     }
   },
   plugins: [],
