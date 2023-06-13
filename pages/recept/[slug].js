@@ -28,7 +28,7 @@ export default function Post(props) {
   };
 
   return (
-    <div className="grid grid-rows-1 h-fit w-fit p-5">
+    <div className="grid grid-rows-1 h-fit p-4">
       <div className="flex justify-between p-10 text-white">
         <div className="flex items-center border-b-4 border-black">
           <Link href="/recepten">
@@ -43,38 +43,34 @@ export default function Post(props) {
           </button>
         </div>
       </div>
-      <div className="grid justify-center w-full">
-        <div className="bg-card p-8 justify-center max-w-[640px] mx-auto rounded-[10px] text-[#C9C9C9]">
+      <div className="grid justify-center">
+        <div className="bg-card p-8 justify-center w-fit lg:w-160 rounded-[10px] text-[#C9C9C9]">
           <h1 className="text-center p-4">
             <b>{props.recept.titel}</b>
           </h1>
           <div className="text-center mb-4">
             {documentToReactComponents(props.recept.bereidingswijze, options)}
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-4">
             <div className="grid grid-cols-2 gap-2 p-6">
-              <div>
+              <div className="col-span-1">
                 <h1>Ingrediënten</h1>
                 <ul className="list-disc">
-                  {props.recept.ingredienten
-                    .slice(0, Math.ceil(props.recept.ingredienten.length / 2))
-                    .map((item, index) => (
-                      <li key={index}>{item}</li>
-                    ))}
+                  {props.recept.ingredienten.slice(0, Math.ceil(props.recept.ingredienten.length / 2)).map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
                 </ul>
               </div>
-              <div>
+              <div className="col-span-1">
                 <h1>&nbsp;</h1>
                 <ul className="list-disc">
-                  {props.recept.ingredienten
-                    .slice(Math.ceil(props.recept.ingredienten.length / 2))
-                    .map((item, index) => (
-                      <li key={index}>{item}</li>
-                    ))}
+                  {props.recept.ingredienten.slice(Math.ceil(props.recept.ingredienten.length / 2)).map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
                 </ul>
               </div>
             </div>
-            <div className="flex justify-center items-center">
+            <div className="col-span-1 flex justify-center items-center">
               {props.recept.receptFoto.map((r, i) => {
                 return (
                   <Image
