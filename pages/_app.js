@@ -6,7 +6,7 @@ export default function App({ Component, pageProps }) {
     return (
         <div className=""> 
                 <Header />
-                <div className="site-container background">
+                <div className="relative bg-background">
                     <Component {...pageProps} />
                 </div>
                 <Footer />

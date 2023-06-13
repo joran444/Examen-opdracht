@@ -45,12 +45,6 @@
       box-shadow: inset;
     }
 
-    .site-container {
-      position: relative;
-      background-color: #374220;
-      max-width: 100%;
-    }
-
     .footer {
       background-color: black;
       color: white;
