@@ -43,9 +43,9 @@ export default function Blog({ recepten }) {
     }, []);
 
     useEffect(() => {
-        if (windowWidth <= 768) {
+        if (windowWidth <= 767) {
             setReceptenPerPage(3);
-        } else if (windowWidth <= 1025) {
+        } else if (windowWidth <= 1024) {
             setReceptenPerPage(4);
         }
         else {
