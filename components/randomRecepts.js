@@ -53,27 +53,26 @@ const RandomRecept = () => {
           };
 
           return (
-<div key={gemaaktOp} className="text-white w-full">
-  <div style={backgroundImageStyle} className="text-center bg-cover bg-no-repeat bg-center h-full relative">
-    <div style={gradientOverlayStyle}></div>
-    <div className="h-full flex flex-col justify-evenly items-center" style={contentContainerStyle}>
-      <div className="p-1">
-        <h1 className="text-lg sm:text-2xl md:text-3xl">{titel}</h1>
-      </div>
-      <div className="flex w-full sm:w-3/4 md:w-1/2 lg:w-1/2">
-        <p className="h-fit">{omschrijving}</p>
-      </div>
-      <div>
-        <p>Gemaakt door:</p>
-        <p>{auteur}</p>
-      </div>
-      <Link href={`/recept/${slug}`} className="p-2">
-        <div className="text-black bg-white p-1 opacity-60 rounded-[10px]">Zie recept</div>
-      </Link>
-    </div>
-  </div>
-</div>
-
+            <div key={gemaaktOp} className="text-white w-full">
+              <div style={backgroundImageStyle} className="text-center bg-cover bg-no-repeat bg-center h-full relative">
+                <div style={gradientOverlayStyle}></div>
+                <div className="h-full flex flex-col justify-evenly items-center" style={contentContainerStyle}>
+                  <div className="p-1">
+                    <h1 className="text-lg sm:text-2xl md:text-2xl font-cinzel">{titel}</h1>
+                  </div>
+                  <div className="flex w-full sm:w-3/4 md:w-1/2 lg:w-1/2">
+                    <p className="h-fit font-poppins text-lg">{omschrijving}</p>
+                  </div>
+                  <div>
+                    <p className="font-cinzel">Gemaakt door:</p>
+                    <p className="font-cinzel">{auteur}</p>
+                  </div>
+                  <Link href={`/recept/${slug}`} className="p-2">
+                    <div className="text-black bg-white p-1 opacity-60 rounded-[10px] font-cinzel">Zie recept</div>
+                  </Link>
+                </div>
+              </div>
+            </div>
           );
         })}
 
@@ -118,15 +117,15 @@ const RandomRecept = () => {
                       style={contentContainerStyle}
                     >
                       <div className="p-1">
-                        <h1>{titel}</h1>
+                        <h1 className="font-cinzel">{titel}</h1>
                       </div>
-                      <p className="w-1/2">{omschrijving}</p>
+                      <p className="w-1/2 font-poppins">{omschrijving}</p>
                       <div>
-                        <p>Gemaakt door:</p>
-                        <p>{auteur}</p>
+                        <p className="font-cinzel">Gemaakt door:</p>
+                        <p className="font-cinzel">{auteur}</p>
                       </div>
                       <Link href={`/recept/${slug}`} className="p-2">
-                        <div className="text-black bg-white opacity-50 rounded-[10px] p-1">Zie recept</div>
+                        <div className="text-black bg-white opacity-50 rounded-[10px] font-cinzel p-1">Zie recept</div>
                       </Link>
                     </div>
                   </div>

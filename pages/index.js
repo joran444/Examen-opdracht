@@ -22,7 +22,7 @@ export default function Home({ HomeInfo }) {
   return (
     <div>
       <div className='flex justify-center text-[#D9D9D9] items-center h-full p-5'>
-        <div className='card w-full sm:w-1/2 md:w-full lg:w-5/6 xxl:w-3/5 max-h-min md:h-fit text-center mt-12 mb-12 rounded-[20px] p-10'>
+        <div className='card w-full sm:w-1/2 md:w-full lg:w-5/6 xxl:w-3/5 max-h-min md:h-fit text-center mt-12 mb-12 rounded-[20px] p-10 font-poppins'>
           {documentToReactComponents(HomeInfo, options)}
         </div>
       </div>

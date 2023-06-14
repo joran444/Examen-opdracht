@@ -8,6 +8,7 @@ function Recept({ titel, omschrijving, slug, auteur, gemaaktOp, image }) {
     backgroundImage: `url(${file.url})`, //De url voor de achtergrond foto's voor alle recepten. Op gehaald
   };
 
+  //This is the white spotlight overlay on the recepts cards
   const gradientOverlayStyle = {
     position: "absolute",
     top: 0,
@@ -24,28 +25,23 @@ function Recept({ titel, omschrijving, slug, auteur, gemaaktOp, image }) {
     zIndex: 2,
   };
 
-  // const truncatedText = bereidingswijze.content[0].content[0].value.substring(
-  //   0,
-  //   200
-  // );
-
   return (
     <div className="card text-white h-full md:h-80 w-full">
       <div style={backgroundImageStyle} className="text-center bg-cover bg-no-repeat bg-center h-full relative">
         <div style={gradientOverlayStyle}></div>
         <div className="h-full flex flex-col justify-evenly items-center" style={contentContainerStyle}>
           <div className="p-1">
-            <h1>{titel}</h1>
+            <h1 className="font-cinzel">{titel}</h1>
           </div>
           <div className="w-1/2 flex justify-center items-center">
-            <p className="h-24 overflow-hidden">{omschrijving}</p>
+            <p className="h-24 overflow-hidden font-poppins">{omschrijving}</p>
           </div>
           <div>
-            <p>Gemaakt door:</p>
-            <p>{auteur}</p>
+            <p className="font-cinzel">Gemaakt door:</p>
+            <p className="font-cinzel">{auteur}</p>
           </div>
           <Link href={`/recept/${slug}`}>
-            <div className="text-black bg-white p-1 opacity-50 rounded-[10px]">
+            <div className="text-black bg-white p-1 opacity-50 rounded-[10px] font-cinzel">
               Zie recept
             </div>
           </Link>

@@ -12,7 +12,7 @@ module.exports = {
     screens: {
       sm: '480px',
       md: '768px',
-      lg: '1024px',
+      lg: '1025px',
       xl: '1280px',
       xxl: '1440px',
       xxxl: '1536px',
@@ -35,12 +35,13 @@ module.exports = {
     fontFamily: {
       sans: ['Cincel Decorative', 'sans-serif'],
       serif: ['Cinzel', 'serif'],
+      poppins: ['Poppins', 'serif']
     },
     extend: {
       spacing: {
         '128': '32rem', //512px
         '144': '36rem',
-        '160': '53.125rem',// px
+        '160': '53.125rem',// px used in the single recept view for the width of the Content holder
         '84': '21rem', // 336px
         '85': '22rem',
         '100': '25.625rem', //410px width of the cards 

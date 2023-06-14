@@ -22,15 +22,24 @@
       font-style: normal;
     }
     
+    /*The class for nav text */
     .text-nav-heading {
       color: #FF7500;
       font-family: 'Cinzel Decorative', serif;
     }
 
+    /* The class for all Titles(h1,h2,h3) in the website */
     .text-heading {
       font-family: 'Cinzel Decorative', serif;
     }
+    
+    /* The class to make the text have poppins font */
+    .text-text {
+      font-family: 'Poppins', serif;
+    }
 
+
+    /* The card for all the recepts shown on the recepten page */
     .card {
       background-color: #1B2110;
       padding: theme('spacing.6');
@@ -39,15 +48,18 @@
       align-content: center;
       font-family: 'Poppins', serif;
     }
-
-    .active {
-      background-color: theme('colors.gray-dark');
-      box-shadow: inset;
-    }
-
+    
+    /* Just like it says this is the footer component class */
     .footer {
       background-color: black;
       color: white;
     }
-  
+    
+    /* makes text not overflow so the item its in doesn't grow out of size*/
+    .truncate {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 150px; /* Adjust the maximum width as needed */
+    }
   }

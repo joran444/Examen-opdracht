@@ -5,13 +5,14 @@ import { BLOCKS } from '@contentful/rich-text-types';
 
 export default function About({ aboutUs }) {
 
+  //Options for loading text from contentful
   const options = {
     renderNode: {
       [BLOCKS.HEADING_1]: (node, children) => { return <h1 className="text-heading text-2xl">{children}</h1> },
       [BLOCKS.HEADING_2]: (node, children) => <h2 className="text-heading text-xl">{children}</h2>,
       [BLOCKS.HEADING_3]: (node, children) => <h3 className="text-heading text-lg">{children}</h3>,
       // Add support for other heading levels if needed
-      [BLOCKS.PARAGRAPH]: (node, children) => <p className="p-2">{children}</p>
+      [BLOCKS.PARAGRAPH]: (node, children) => <p className="font-poppins p-2">{children}</p>
     },
     renderText: text => {
       return text.split('\n').reduce((children, textSegment, index) => {

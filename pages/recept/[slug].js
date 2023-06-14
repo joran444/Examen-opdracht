@@ -3,22 +3,21 @@ import { useRouter } from 'next/router';
 import { fetchReceptEntries } from '@utils/contentfulPosts';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Image from 'next/image';
-import { BsArrowLeft, BsArrowRight } from 'react-icons/bs';
 import { BLOCKS } from '@contentful/rich-text-types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons';
+
 
 
 export default function Post(props) {
   const router = useRouter()
 
+  //Options for loading text from contentful
   const options = {
     renderNode: {
       [BLOCKS.HEADING_1]: (node, children) => <h1 className="text-heading text-2xl">{children}</h1>,
       [BLOCKS.HEADING_2]: (node, children) => <h2 className="text-heading text-xl">{children}</h2>,
       [BLOCKS.HEADING_3]: (node, children) => <h3 className="text-heading text-lg">{children}</h3>,
       // Add support for other heading levels if needed
-      [BLOCKS.PARAGRAPH]: (node, children) => <p className="p-2">{children}</p>
+      [BLOCKS.PARAGRAPH]: (node, children) => <p className="font-poppins p-2">{children}</p>
     },
     renderText: text => {
       return text.split('\n').reduce((children, textSegment, index) => {
@@ -32,38 +31,38 @@ export default function Post(props) {
       <div className="flex justify-between p-10 text-white">
         <div className="flex items-center border-b-4 border-black">
           <Link href="/recepten">
-            <b className="flex items-center">
+            <b className="flex items-center font-cinzel">
               Terug naar overzicht
             </b>
           </Link>
         </div>
         <div className="flex items-center border-b-4 border-black">
           <button onClick={() => router.push('/recept')} className="flex items-centers">
-            <b>Volgende recept</b>
+            <b className="font-cinzel">Volgende recept</b>
           </button>
         </div>
       </div>
       <div className="grid justify-center">
         <div className="bg-card p-8 justify-center w-fit lg:w-160 rounded-[10px] text-[#C9C9C9]">
-          <h1 className="text-center p-4">
+          <h1 className="text-center p-4 font-cinzel">
             <b>{props.recept.titel}</b>
           </h1>
-          <div className="text-center mb-4">
+          <div className="text-center mb-4 font-poppins">
             {documentToReactComponents(props.recept.bereidingswijze, options)}
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div className="grid grid-cols-2 gap-2 p-6">
-              <div className="col-span-1">
+              <div className="col-span-1"> {/*This is the first half of the ingredient list */}
                 <h1>Ingrediënten</h1>
-                <ul className="list-disc">
+                <ul className="list-disc p-3">
                   {props.recept.ingredienten.slice(0, Math.ceil(props.recept.ingredienten.length / 2)).map((item, index) => (
                     <li key={index}>{item}</li>
                   ))}
                 </ul>
               </div>
-              <div className="col-span-1">
+              <div className="col-span-1"> {/*This is the second half of the ingredient list */}
                 <h1>&nbsp;</h1>
-                <ul className="list-disc">
+                <ul className="list-disc p-3">
                   {props.recept.ingredienten.slice(Math.ceil(props.recept.ingredienten.length / 2)).map((item, index) => (
                     <li key={index}>{item}</li>
                   ))}
@@ -96,23 +95,23 @@ export default function Post(props) {
   )
 }
 
+//Getting a single recept for this page
 export async function getStaticPaths() {
   const response = await fetchReceptEntries();
-  // console.log(response)
-
   const paths = response.map((post) => ({
     params: { slug: post.fields.slug },
   }));
   return { paths, fallback: false };
 }
 
+//Getting all data from a single recept to load on the website
 export async function getStaticProps(context) {
   const { slug } = context.params;
   const res = await fetchReceptEntries()
-  // console.log(res)
   const recepts = res.map((p) => {
     return p.fields
   })
+  //filter all the post to only be the one that got clicked on using the slug
   const recept = recepts.filter(post => post.slug === slug)[0]
   return {
     props: {
