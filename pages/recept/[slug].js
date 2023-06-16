@@ -26,6 +26,18 @@ export default function Post(props) {
     },
   };
 
+  //The code to, what the name indicates, handle the next repept
+  const handleNextRececpt = async () => {
+    const response = await fetchReceptEntries(); //Get all recepten data
+    const titles = response.map((post) => post.fields.slug);
+    const currentIndex = titles.findIndex((slug) => slug === router.query.slug); // find the current recept
+    //Check if the next recept is not the same recept as the one your on
+    if (currentIndex !== -1 && currentIndex < titles.length - 1) {
+      const nextSlug = titles[currentIndex + 1];
+      router.push(`/recept/${nextSlug}`);
+    }
+  };
+
   return (
     <div className="grid grid-rows-1 h-fit p-4">
       <div className="flex justify-between p-10 text-white">
@@ -37,13 +49,13 @@ export default function Post(props) {
           </Link>
         </div>
         <div className="flex items-center border-b-4 border-black">
-          <button onClick={() => router.push('/recept')} className="flex items-centers">
+          <button onClick={handleNextRececpt} className="flex items-center">
             <b className="font-cinzel">Volgende recept</b>
           </button>
         </div>
       </div>
-      <div className="grid justify-center">
-        <div className="bg-card p-8 justify-center w-fit lg:w-160 rounded-[10px] text-[#C9C9C9]">
+      <div className="flex justify-center">
+        <div className="bg-card p-8  justify-center w-fit lg:w-2/3 rounded-[10px] text-[#C9C9C9]">
           <h1 className="text-center p-4 font-cinzel">
             <b>{props.recept.titel}</b>
           </h1>

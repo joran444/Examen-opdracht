@@ -5,7 +5,7 @@ function Recept({ titel, omschrijving, slug, auteur, gemaaktOp, image }) {
   let { file } = image;
 
   const backgroundImageStyle = {
-    backgroundImage: `url(${file.url})`, //De url voor de achtergrond foto's voor alle recepten. Op gehaald
+    backgroundImage: `url(${file.url})`, //Adding the url for the background images on all recepten
   };
 
   //This is the white spotlight overlay on the recepts cards

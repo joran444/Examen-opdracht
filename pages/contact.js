@@ -21,7 +21,7 @@ export default function contact({ contactInfo, contactNumber, contactMail }) {
     };
     return (
         <div>
-            <div className='flex justify-center text-[#C9C9C9] items-center h-full p-5'>
+            <div className='flex justify-center text-[#D9D9D9] items-center h-full p-5'>
                 <div className='card w-full sm:w-1/2 md:w-full lg:w-5/6 xxl:w-3/5 max-h-min md:h-fit text-center mt-12 mb-12 rounded-[20px]'>
                     <h1 className="text-heading p-5 text-2xl font-poppins">Contact</h1>
                     {documentToReactComponents(contactInfo, options)}

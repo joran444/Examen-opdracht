@@ -51,7 +51,8 @@ function Footer() {
                 </div>
                 <div className="flex flex-row justify-center basis-1/2 md:basis-1/3 border-r md:border-x border-white">
                     <ul className="text-align-center">
-                        <li className="flex justify-center items-center h-12 text-heading"><h2>BLOGS</h2></li>
+                        <li className="flex justify-center items-center h-12 text-heading"><h2>RECEPTEN</h2></li>
+                        {/*Go in the array of randomTitels defined above and map them to show them on the screen*/}
                         {randomTitles.map((title) => (
                             <li className="flex justify-center items-center h-12" key={title.sys.id}>
                                 <Link href={`/recept/${title.fields.slug}`}>

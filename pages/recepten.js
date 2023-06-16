@@ -8,12 +8,14 @@ import React, { useState, useEffect } from 'react';
 export default function Blog({ recepten }) {
     const [searchQuery, setSearchQuery] = useState('');
     const [filteredRecepten, setFilteredRecepten] = useState(recepten);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [receptenPerPage, setReceptenPerPage] = useState(6);
+    const [currentPage, setCurrentPage] = useState(1); //The page where you start in the recepten overview
+    const [receptenPerPage, setReceptenPerPage] = useState(6); //the amount of recepten per page, this will be changed later on the width of the device
     const totalPages = Math.ceil(filteredRecepten.length / receptenPerPage);
-    const [windowWidth, setWindowWidth] = useState(0);
+    const [windowWidth, setWindowWidth] = useState(0); // set the window with to pixels, this is to check on what device you are
 
+    //The search handler for the search field
     const handleSearchChange = (event) => {
+        event.preventDefault(); // stops people from reloading the page when they hit enter
         const query = event.target.value;
         setSearchQuery(query);
         const filtered = recepten.filter((recept) =>
@@ -44,11 +46,14 @@ export default function Blog({ recepten }) {
 
     useEffect(() => {
         if (windowWidth <= 767) {
+            //Zet recepten per pagina naar 3 voor telefoon
             setReceptenPerPage(3);
         } else if (windowWidth <= 1024) {
+            //Zet recepten per pagina naar 4 voor tablet
             setReceptenPerPage(4);
         }
         else {
+            //zet recepten per pagina naar 6 voor grote schermen
             setReceptenPerPage(6);
         }
     }, [windowWidth]);
@@ -61,7 +66,7 @@ export default function Blog({ recepten }) {
     return (
         <main className="space-y-4 min-h-144">
             <div className="flex justify-center text-black py-5 h-24 min-h-80">
-                <form>
+                <form onSubmit={handleSearchChange}>
                     <div className="flex items-center rounded-full bg-white md:w-128 h-full py-5 px-4">
                         <input
                             type="search"
@@ -76,8 +81,10 @@ export default function Blog({ recepten }) {
                     </div>
                 </form>
             </div>
+            {/* check if there is any data in the currentRecept array  */}
             {currentRecepten.length > 0 ? (
                 <div className="grid sm:grid-rows-2 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-5 p-3">
+                    {/* Load the currentRecepten array in by using the map function on that array with data*/}
                     {currentRecepten.map((p, index) => (
                         <React.Fragment key={index}>
                             <Recept
@@ -100,6 +107,7 @@ export default function Blog({ recepten }) {
                 </div>
             )}
 
+            {/* Pagination handler */}
             {filteredRecepten.length > receptenPerPage && (
                 <Pagination
                     currentPage={currentPage}

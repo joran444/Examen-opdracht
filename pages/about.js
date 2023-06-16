@@ -23,7 +23,7 @@ export default function About({ aboutUs }) {
 
   return (
     <div>
-      <div className='flex justify-center text-[#C9C9C9] items-center h-full p-5'>
+      <div className='flex justify-center text-[#D9D9D9] items-center h-full p-5'>
         <div className='card w-full sm:w-1/2 md:w-full lg:w-5/6 xxl:w-3/5 max-h-min md:h-fit text-center mt-12 mb-12 rounded-[20px]'>
           {documentToReactComponents(aboutUs, options)}
         </div>
