@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 
 function Recept({ titel, omschrijving, slug, auteur, gemaaktOp, image }) {
+  image ? image : "pexels-engin-akyurt-1435909.jpg";
   let { file } = image;
 
   const backgroundImageStyle = {

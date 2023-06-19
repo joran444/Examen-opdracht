@@ -29,12 +29,13 @@ const RandomRecept = () => {
     <div className="w-full h-3/4  bg-card">
       <div className="hidden md:flex grid-cols-3 gap-5 h-full lg:h-86 bg-card p-5">
         {randomRecipes.map((recipe) => {
-          const firstImage = recipe.fields.receptFoto.length > 0 ? recipe.fields.receptFoto[0].fields : recipe.fields.receptFoto; // Get the first image if available
+          const firstImage = recipe.fields.receptFoto && recipe.fields.receptFoto.length > 0 ? recipe.fields.receptFoto[0].fields : null; // Get the first image if available
           const { titel, omschrijving, slug, auteur, gemaaktOp } = recipe.fields;
-          const { file } = firstImage;
+          const file = firstImage && firstImage.file && firstImage.file.url ? firstImage.file : null;
+          const imageUrl = file && file.url ? file.url : './pictures/pexels-engin-akyurt-1435909.jpg'; // If they didn't have a picture they get this filler image
 
           const backgroundImageStyle = {
-            backgroundImage: `url(${file.url})`,
+            backgroundImage: `url(${imageUrl})`,
           };
 
           const gradientOverlayStyle = {
@@ -81,13 +82,15 @@ const RandomRecept = () => {
       <div className="md:hidden bg-card w-fill h-full">
         <Carousel>
           {randomRecipes.map((recipe) => {
-            const firstImage = recipe.fields.receptFoto.length > 0 ? recipe.fields.receptFoto[0].fields : recipe.fields.receptFoto; // Get the first image if available
+            const firstImage = recipe.fields.receptFoto && recipe.fields.receptFoto.length > 0 ? recipe.fields.receptFoto[0].fields : null; // Get the first image if available
             const { titel, omschrijving, slug, auteur, gemaaktOp } = recipe.fields;
-            const { file } = firstImage;
+            const file = firstImage && firstImage.file && firstImage.file.url ? firstImage.file : null;
+            const imageUrl = file && file.url ? file.url : './pictures/pexels-engin-akyurt-1435909.jpg';// If they don't have a picture they get this filler image
 
             const backgroundImageStyle = {
-              backgroundImage: `url(${file.url})`,
+              backgroundImage: `url(${imageUrl})`,
             };
+
 
             const gradientOverlayStyle = {
               position: 'absolute',
