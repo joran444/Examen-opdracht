@@ -46,14 +46,14 @@ export default function Blog({ recepten }) {
 
     useEffect(() => {
         if (windowWidth <= 767) {
-            //Zet recepten per pagina naar 3 voor telefoon
+            //Set recepten per page to 3 for phone
             setReceptenPerPage(3);
         } else if (windowWidth <= 1024) {
-            //Zet recepten per pagina naar 4 voor tablet
+            //Set recepten per page to 4 for tablet
             setReceptenPerPage(4);
         }
         else {
-            //zet recepten per pagina naar 6 voor grote schermen
+            //Set recepten per page to 6 for Bigger screens, think laptop or pc
             setReceptenPerPage(6);
         }
     }, [windowWidth]);
