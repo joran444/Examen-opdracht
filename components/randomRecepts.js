@@ -28,7 +28,7 @@ const RandomRecept = () => {
   return (
     <div className="w-full h-3/4  bg-card">
       <div className="hidden md:flex grid-cols-3 gap-5 h-full lg:h-86 bg-card p-5">
-        {randomRecipes.map((recipe) => {
+        {randomRecipes.map((recipe,index) => {
           const firstImage = recipe.fields.receptFoto && recipe.fields.receptFoto.length > 0 ? recipe.fields.receptFoto[0].fields : null; // Get the first image if available
           const { titel, omschrijving, slug, auteur, gemaaktOp } = recipe.fields;
           const file = firstImage && firstImage.file && firstImage.file.url ? firstImage.file : null;
@@ -54,7 +54,8 @@ const RandomRecept = () => {
           };
 
           return (
-            <div key={gemaaktOp} className="text-white w-full">
+            <React.Fragment key={index}>
+            <div key={index} className="text-white w-full">
               <div style={backgroundImageStyle} className="text-center bg-cover bg-no-repeat bg-center h-full relative">
                 <div style={gradientOverlayStyle}></div>
                 <div className="h-full flex flex-col justify-evenly items-center" style={contentContainerStyle}>
@@ -74,6 +75,7 @@ const RandomRecept = () => {
                 </div>
               </div>
             </div>
+            </React.Fragment>
           );
         })}
 
@@ -81,7 +83,7 @@ const RandomRecept = () => {
       {/* This is the carousel for on the phone */}
       <div className="md:hidden bg-card w-fill h-full">
         <Carousel>
-          {randomRecipes.map((recipe) => {
+          {randomRecipes.map((recipe, index) => {
             const firstImage = recipe.fields.receptFoto && recipe.fields.receptFoto.length > 0 ? recipe.fields.receptFoto[0].fields : null; // Get the first image if available
             const { titel, omschrijving, slug, auteur, gemaaktOp } = recipe.fields;
             const file = firstImage && firstImage.file && firstImage.file.url ? firstImage.file : null;
@@ -108,7 +110,8 @@ const RandomRecept = () => {
             };
 
             return (
-              <div key={gemaaktOp} className="h-fit w-fit">
+              <React.Fragment key={index}>
+              <div key={index} className="h-fit w-fit">
                 <div className=" text-white h-full p-5">
                   <div
                     style={backgroundImageStyle}
@@ -134,6 +137,7 @@ const RandomRecept = () => {
                   </div>
                 </div>
               </div>
+              </React.Fragment>
             );
           })}
         </Carousel>
